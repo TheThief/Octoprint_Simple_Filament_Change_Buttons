@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_simple_filament_change_buttons/templates *
+recursive-include octoprint_simple_filament_change_buttons/translations *
+recursive-include octoprint_simple_filament_change_buttons/static *
