@@ -1,7 +1,7 @@
 plugin_identifier = "simple_filament_change_buttons"
 plugin_package = "octoprint_simple_filament_change_buttons"
 plugin_name = "Simple Filament Change Buttons"
-plugin_version = "1.0"
+plugin_version = "1.1"
 plugin_description = """Adds some buttons to send Marlin filament load/unload gcodes"""
 plugin_author = "Gareth Martin"
 plugin_author_email = "gmartin@dynamicarcade.co.uk"

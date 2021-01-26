@@ -17,23 +17,23 @@ $(function() {
 					/*{'commands': [
 						'M125'
 						],
-						'additionalClasses': 'fa fa-pause', 'name': ' Park'},*/
+						'additionalClasses': 'sfcb fa-pause', 'name': ' Park'},*/
 					{'commands': [
 						'M702'
 						],
-						'additionalClasses': 'fa fa-fast-backward', 'name': ' Unload'},
+						'additionalClasses': 'sfcb fa-fast-backward', 'name': ' Unload'},
 					{'commands': [
 						'M701'
 						],
-						'additionalClasses': 'fa fa-step-forward', 'name': ' Load'},
+						'additionalClasses': 'sfcb fa-step-forward', 'name': ' Load'},
 					{'commands': [
 						'M600'
 						],
-						'additionalClasses': 'fa fa-refresh', 'name': ' Change Filament'},
+						'additionalClasses': 'sfcb fa-sync', 'name': ' Change Filament'},
 					{'commands': [
 						'M108'
 						],
-						'additionalClasses': 'fa fa-play', 'name': ' Resume'},
+						'additionalClasses': 'sfcb fa-play', 'name': ' Resume'},
 				]
 			}];
 		};

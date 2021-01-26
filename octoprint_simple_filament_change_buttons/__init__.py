@@ -28,8 +28,8 @@ class Simple_Filament_Change_Buttons_Plugin(octoprint.plugin.SettingsPlugin,
 		# Define your plugin's asset files to automatically include in the
 		# core UI here.
 		return dict(
-			js=["js/simple_filament_change_buttons.js"]
-			#css=["css/simple_filament_change_buttons.css"],
+			js=["js/simple_filament_change_buttons.js"],
+			css=["css/simple_filament_change_buttons.css"]
 			#less=["less/simple_filament_change_buttons.less"]
 		)
 
