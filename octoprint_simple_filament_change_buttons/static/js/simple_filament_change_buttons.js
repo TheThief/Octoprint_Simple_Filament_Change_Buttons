@@ -52,7 +52,8 @@ $(function() {
 
 		self.temperature = function()
 		{
-			return $('*[placeholder="Temperature"]')[0].value
+			// The temperature input field has a "placeholder" attribute that is equal to it's name
+			return $('*[placeholder = "Temperature"]')[0].value
 		}
 
 
@@ -71,7 +72,6 @@ $(function() {
 
 					{'input': [{
 							name: 'Temperature',
-							parameter: 'temperature',
 							default: 200
 						}]
 					},
