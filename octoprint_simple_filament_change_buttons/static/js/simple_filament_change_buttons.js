@@ -12,33 +12,37 @@ $(function() {
 		self.controlViewModel = parameters[0];
 
 		self.unloadFilament = function() {
-			cmds = [
-				// Heat to specified temp
-				"M109 S" + self.temperature(),
-				// Do unload
-				"M702",
-				// Cool hotend
-				"M104 S0"
-			]	
-			OctoPrint.control.sendGcode(cmds)
+			self.currentTargetTemperature().then(temp => {
+				cmds = [
+					// Heat to specified temp
+					"M109 S" + self.desiredTemperature(),
+					// Do unload
+					"M702",
+					// Cool hotend
+					"M104 S" + temp
+				]	
+				OctoPrint.control.sendGcode(cmds)
+			})
 		}
 
 		self.loadFilament = function() {
-			cmds = [
-				// Heat to specified temp
-				"M109 S" + self.temperature(),
-				// Do load
-				"M701",
-				// Cool hotend
-				"M104 S0"
-			]	
-			OctoPrint.control.sendGcode(cmds)
+			self.currentTargetTemperature().then(temp => {
+				cmds = [
+					// Heat to specified temp
+					"M109 S" + self.desiredTemperature(),
+					// Do load
+					"M701",
+					// Cool hotend
+					"M104 S" + temp
+				]	
+				OctoPrint.control.sendGcode(cmds)
+			})
 		}
 
 		self.changeFilament = function() {
 			cmds = [
 				// Change filament at specified temp
-				"M600 R" + self.temperature(),
+				"M600 R" + self.desiredTemperature(),
 			]		
 			OctoPrint.control.sendGcode(cmds)
 		}
@@ -50,11 +54,17 @@ $(function() {
 			OctoPrint.control.sendGcode(cmds)
 		}
 
-		self.temperature = function()
+		self.desiredTemperature = function()
 		{
 			// The temperature input field has a "placeholder" attribute that is equal to it's name
 			return $('*[placeholder = "Temperature"]')[0].value
 		}
+
+		self.currentTargetTemperature = async function()
+		{
+			state = await OctoPrint.printer.getToolState();
+			return state.tool0.target
+		}		
 
 
 		self.getAdditionalControls = function() {
