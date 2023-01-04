@@ -40,11 +40,17 @@ $(function() {
 		}
 
 		self.changeFilament = function() {
-			cmds = [
-				// Change filament at specified temp
-				"M600 R" + self.desiredTemperature(),
-			]		
-			OctoPrint.control.sendGcode(cmds)
+			self.currentTargetTemperature().then(temp => {
+				cmds = [
+					// Heat to specified temp
+					"M109 S" + self.desiredTemperature(),
+					// Do filament change
+					"M600",
+					// Cool hotend
+					"M104 S" + temp
+				]	
+				OctoPrint.control.sendGcode(cmds)
+			})        
 		}
 
 		self.resume = function() {
